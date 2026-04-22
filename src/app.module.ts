@@ -7,6 +7,7 @@ import { ArtistsController } from './artists/artists.controller';
 import { Album, AlbumSchema } from './shemas/album.schema';
 import { AlbumsController } from './albums/albums.controller';
 import { Track, TrackSchema } from './shemas/track.schema';
+import { TracksController } from './tracks/tracks.controller';
 
 @Module({
   imports: [
@@ -17,7 +18,7 @@ import { Track, TrackSchema } from './shemas/track.schema';
       { name: Track.name, schema: TrackSchema },
     ]),
   ],
-  controllers: [AppController, ArtistsController, AlbumsController],
+  controllers: [AppController, ArtistsController, AlbumsController, TracksController],
   providers: [AppService],
 })
 export class AppModule {}
