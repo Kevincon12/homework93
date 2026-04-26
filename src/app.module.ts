@@ -10,9 +10,13 @@ import { Track, TrackSchema } from './shemas/track.schema';
 import { TracksController } from './tracks/tracks.controller';
 import { User, UserSchema } from './shemas/user.schema';
 import { UsersController } from './users/users.controller';
+import { AuthService } from './auth/auth.service';
+import { LocalStrategy } from './local.strategy';
+import { PassportModule } from '@nestjs/passport';
 
 @Module({
   imports: [
+    PassportModule,
     MongooseModule.forRoot('mongodb://localhost/music'),
     MongooseModule.forFeature([
       { name: Artist.name, schema: ArtistSchema },
@@ -28,6 +32,6 @@ import { UsersController } from './users/users.controller';
     TracksController,
     UsersController,
   ],
-  providers: [AppService],
+  providers: [AppService, AuthService, LocalStrategy],
 })
 export class AppModule {}
